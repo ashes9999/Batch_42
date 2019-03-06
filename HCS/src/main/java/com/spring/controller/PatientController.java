@@ -37,13 +37,6 @@ private PatientService pser;
 JwtResponse jwtr;
 
 
-@GetMapping("/test")
-public String Test() {
-	System.out.println("faaaaaaaaaaaaaaaaaakkk");
-	return "Success";
-	
-}
-
 @PostMapping
 public PatientModel create(@RequestBody PatientModel modelobj) {
 	

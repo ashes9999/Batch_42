@@ -21,7 +21,7 @@ import com.spring.service.AppointmentService;
 
 @CrossOrigin(origins="*",maxAge=3600)
 @RestController
-@RequestMapping(path="/user/Appointment")
+@RequestMapping(path="user/Appointment")
 public class AppointmentController {
 	
 	@Autowired

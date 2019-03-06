@@ -14,46 +14,58 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.spring.dao.UserRepositoryDAO;
 import com.spring.model.AdminModel;
+import com.spring.model.DoctorModel;
+import com.spring.model.User;
 import com.spring.service.AdminService;
+import com.spring.service.DoctorService;
+import com.spring.service.UserDetailsService;
 
 @CrossOrigin(origins="*",maxAge=3600)
 @RestController
-@RequestMapping(path="/admin")
 public class AdminController {
 	
+
+	
 	@Autowired
-	private AdminService adms;
+	private UserRepositoryDAO uss;
+	private DoctorService dss;
+//	@GetMapping("/test")
+//	public String Test() {
+//		System.out.println("faaaaaaaaaaaaaaaaaakkk");
+//		return "Success";
+//		
+//	}
 	
-	@GetMapping("/test")
-	public String Test() {
-		System.out.println("faaaaaaaaaaaaaaaaaakkk");
-		return "Success";
-		
-	}
+//	@PostMapping
+//	public AdminModel create(@RequestBody AdminModel modelobj) {
+//	return adms.create(modelobj);
+//	}
+
+//	@GetMapping(path= {"/{id}"})
+//	public Optional<AdminModel> findById(@PathVariable String id){
+//	return adms.findById(id);
+//	}
 	
-	@PostMapping
-	public AdminModel create(@RequestBody AdminModel modelobj) {
-	return adms.create(modelobj);
-	}
-
-	@GetMapping(path= {"/{id}"})
-	public Optional<AdminModel> findById(@PathVariable String id){
-	return adms.findById(id);
-	}
-
 	@GetMapping("/all")
-	public List<AdminModel> getAdminModels() {
-		return adms.findAll();
+	public List<User> getUsers() {
+		return (List<User>)uss.findAll();
 			
 		}
-	@PutMapping(path= {"update/{id}"})
-		public AdminModel update( @RequestBody AdminModel modelobj ) {
-		
-		return adms.update(modelobj);
-	}
-	@DeleteMapping(path= {"/{id}"})
-	public void deleteById(@PathVariable("id") String id){
-		adms.delete(id);
-	}
+	@GetMapping("/doc/all")
+	public List<DoctorModel> getDoctors() {
+		return (List<DoctorModel>)dss.findAll();
+			
+		}
+	
+//	@PutMapping(path= {"update/{id}"})
+//		public AdminModel update( @RequestBody AdminModel modelobj ) {
+//		
+//		return adms.update(modelobj);
+//	}
+//	@DeleteMapping(path= {"/{id}"})
+//	public void deleteById(@PathVariable("id") String id){
+//		adms.delete(id);
+//	}
 }
