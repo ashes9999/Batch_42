@@ -13,15 +13,13 @@ import javax.persistence.UniqueConstraint;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-@Table(name = "DoctorHcs", uniqueConstraints = { @UniqueConstraint(columnNames = { "username" }),
-		@UniqueConstraint(columnNames = { "DoctorId" }) })
+@Table(name = "DoctorHcs", uniqueConstraints = { @UniqueConstraint(columnNames = { "username" }) })
 public class DoctorModel {
 	@Id
 	@Column(name = "username", length = 20)
 	private String username;
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
-	@Column(name = "DoctorId", length = 10)
-	private int doctorId;
+	@GeneratedValue(strategy=GenerationType.TABLE)
+	
 	@Column(name = "doctorname", length = 40)
 	private String doctorname;
 	@Column(name = "doctorspecialization", length = 60)
@@ -39,13 +37,7 @@ public class DoctorModel {
 		this.username = username;
 	}
 
-	public int getDoctorId() {
-		return doctorId;
-	}
 
-	public void setDoctorId(int doctorId) {
-		this.doctorId = doctorId;
-	}
 
 	public String getDoctorname() {
 		return doctorname;
@@ -79,11 +71,11 @@ public class DoctorModel {
 		this.doctorstate = doctorstate;
 	}
 
-	public DoctorModel(String username, int doctorId, String doctorname, String doctorspecialization, String doctorcity,
+	public DoctorModel(String username, String doctorname, String doctorspecialization, String doctorcity,
 			String doctorstate) {
 		super();
 		this.username = username;
-		this.doctorId = doctorId;
+		
 		this.doctorname = doctorname;
 		this.doctorspecialization = doctorspecialization;
 		this.doctorcity = doctorcity;

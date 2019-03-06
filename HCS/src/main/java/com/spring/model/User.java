@@ -63,11 +63,7 @@ public class User{
     	joinColumns = @JoinColumn(name = "user_id"), 
     	inverseJoinColumns = @JoinColumn(name = "patient_id"))
     private Set<PatientModel> PatientHcs= new HashSet<>();
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "user_DoctorHcs", 
-    	joinColumns = @JoinColumn(name = "user_id"), 
-    	inverseJoinColumns = @JoinColumn(name = "DoctorId"))
-    private Set<DoctorModel> DoctorHcs= new HashSet<>();
+
     public User() {}
 
     public User(String name, String username, String email, String password) {

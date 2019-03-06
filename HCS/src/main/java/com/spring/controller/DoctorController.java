@@ -35,10 +35,14 @@ public class DoctorController {
 	}
 	return null;
 	}
-
-	@GetMapping(path= {"/{id}"})
+	@GetMapping("/{id}")
 	public Optional<DoctorModel> findById(@PathVariable("id") String id){
 	return adms.findById(id);
+	}
+
+	@GetMapping("spec/{special}")
+	public List<DoctorModel> findBySpecial(@PathVariable("special") String id){
+	return adms.findByDoctorspecialization(id);
 	}
 
 	@GetMapping("/all")

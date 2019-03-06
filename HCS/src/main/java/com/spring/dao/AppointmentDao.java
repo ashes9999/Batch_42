@@ -1,10 +1,13 @@
 package com.spring.dao;
 
+import java.util.List;
+
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import com.spring.model.AppointmentModel;
-@Repository
-public interface AppointmentDao extends CrudRepository<AppointmentModel, Long> {
+public interface AppointmentDao extends CrudRepository<AppointmentModel, String> {
+
+	List<AppointmentModel> findByDoctorname(String id);
 
 }

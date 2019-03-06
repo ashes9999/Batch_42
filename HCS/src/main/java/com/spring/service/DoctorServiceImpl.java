@@ -43,4 +43,10 @@ public class DoctorServiceImpl implements DoctorService{
 		return DDao.save(doctor);
 	}
 
+	@Override
+	public List<DoctorModel> findByDoctorspecialization(String id) {
+		// TODO Auto-generated method stub
+		return DDao.findByDoctorspecialization(id);
+	}
+
 }

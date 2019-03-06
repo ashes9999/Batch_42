@@ -32,7 +32,7 @@ private AppointmentDao aptdao;
 
 
 	@Override
-	public void delete(Long id) {
+	public void delete(String id) {
 		Optional<AppointmentModel> appt = aptdao.findById(id);
 		if (appt !=null)
 			aptdao.deleteById(id);
@@ -42,9 +42,17 @@ private AppointmentDao aptdao;
 
 
 	@Override
-	public Optional<AppointmentModel> findById(Long id) {
+	public Optional<AppointmentModel> findById(String id) {
 		// TODO Auto-generated method stub
 		return aptdao.findById(id);
+	}
+
+
+
+	@Override
+	public List<AppointmentModel> findByDoctor(String id) {
+		// TODO Auto-generated method stub
+		return aptdao.findByDoctorname(id);
 	}
 
 

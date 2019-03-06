@@ -12,4 +12,5 @@ public interface DoctorService {
 	List<DoctorModel> findAll();
 	Optional<DoctorModel> findById(String id);
 	DoctorModel update(DoctorModel doctor);
+	List<DoctorModel> findByDoctorspecialization(String id);
 }
