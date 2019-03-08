@@ -64,8 +64,8 @@ public class AdminController {
 //		
 //		return adms.update(modelobj);
 //	}
-//	@DeleteMapping(path= {"/{id}"})
-//	public void deleteById(@PathVariable("id") String id){
-//		adms.delete(id);
-//	}
+	@DeleteMapping(path= {"/{id}"})
+	public void deleteById(@PathVariable("id") long id){
+		uss.deleteById(id);
+	}
 }
